@@ -171,25 +171,27 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="flex items-center fixed w-full bottom-4 pr-[200px] ">
+        <div className="flex items-center fixed w-full bottom-10 pr-[200px] ">
           <input
-            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[60%] ${isDarkMode ? "text-white bg-[#0e0f0f]" : "bg-[#d4e2f4]"} `}
+            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[70%] ${isDarkMode ? "text-white bg-[#0e0f0f]" : "bg-[#d4e2f4]"} `}
             type="text"
             onChange={handleChange}
             placeholder="Ask me everything..."
             value={value}
           />
+          
           {isEmpty ? (
             ""
           ) : (
             <img
-              className="absolute right-[50%] w-[24px] h-[24px] hover:opacity-70 hover:cursor-pointer"
+              className="absolute right-[40%] w-[24px] h-[24px] hover:opacity-70 hover:cursor-pointer"
               src={button}
               alt="send"
               onClick={handleClick}
             />
           )}
         </div>
+        <div className="absolute bottom-0 py-2 font-medium left-[50%]">Made by Eddie</div>
         <div className={`flex-1 overflow-y-auto pb-[100px] ${isDarkMode ? "bg-black text-white" : "" }`}>
           {!isNothing ? (
             messageList.map((message, index) => (
@@ -197,20 +199,20 @@ const Main = () => {
                 key={index}
                 className={`${
                   message.isUserMessage
-                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium pr-[200px]"
-                    : "text-left rounded-md pr-[200px]"
+                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium ml-auto pr-[250px]"
+                    : "text-left rounded-md pr-[200px] pl-[50px]"
                 }`}
               >
                 {message.isUserMessage ? (
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-end items-center">
+                    <p>{message.message}</p>
                     <img
-                      className="rounded-full mr-4"
+                      className="rounded-full ml-4"
                       src={message.avatar}
                       alt="Avatar"
                       width="40"
                       height="40"
                     />
-                    <p>{message.message}</p>
                   </div>
                 ) : (
                   <div className="flex items-start ml-2">
