@@ -7,17 +7,15 @@ import button from "../images/send-icon.png";
 import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 import { langContext } from "../Contexts/langContext";
 
-
 const Main = () => {
-
-  const {isDarkMode, setIsDarkMode} = useContext(langContext);
+  const { isDarkMode, setIsDarkMode } = useContext(langContext);
   const [value, setValue] = useState("");
   const [result, setResult] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [isEmpty, setIsEmpty] = useState(true);
   const [isNothing, setIsNothing] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  
+
   const apiKey = "AIzaSyAGOM-gC9P3YQEPXOEauQ_GgfQtlXCNIzM";
 
   const fetchData = async (values) => {
@@ -91,15 +89,18 @@ const Main = () => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     console.log(isDarkMode);
-    
-  }
+  };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
   return (
-    <div className={`w-full min-h-screen pl-[200px] flex pt-2 ${isDarkMode ? 'bg-black text-white' : ""}`}>
+    <div
+      className={`w-full min-h-screen pl-[200px] flex pt-2 ${
+        isDarkMode ? "bg-black text-white" : ""
+      }`}
+    >
       <div className="w-[10%]">
         <div className="text-center">
           <button
@@ -148,7 +149,6 @@ const Main = () => {
 
           <div className="py-4 overflow-y-auto">
             <div className="space-y-2 font-medium">
-
               <span className="ms-3">Recent</span>
             </div>
           </div>
@@ -158,10 +158,10 @@ const Main = () => {
         <div className="flex items-center justify-between">
           <p className="text-[20px]">Gemini</p>
           <div className="flex">
-            <button className="text-[24px]" onClick={() => toggleDarkMode ()}>
-              {isDarkMode ?  <SunOutlined/> :  <MoonOutlined/>}
+            <button className="text-[24px]" onClick={() => toggleDarkMode()}>
+              {isDarkMode ? <SunOutlined /> : <MoonOutlined />}
             </button>
-            
+
             <img
               className="rounded-full mx-4"
               src={avatar}
@@ -173,13 +173,15 @@ const Main = () => {
         </div>
         <div className="flex items-center fixed w-full bottom-10 pr-[200px] ">
           <input
-            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[70%] ${isDarkMode ? "text-white bg-[#0e0f0f]" : "bg-[#d4e2f4]"} `}
+            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[70%] ${
+              isDarkMode ? "text-white bg-[#0e0f0f]" : "bg-[#d4e2f4]"
+            } `}
             type="text"
             onChange={handleChange}
             placeholder="Ask me everything..."
             value={value}
           />
-          
+
           {isEmpty ? (
             ""
           ) : (
@@ -191,28 +193,34 @@ const Main = () => {
             />
           )}
         </div>
-        <div className="absolute bottom-0 py-2 font-medium left-[50%]">Made by Eddie</div>
-        <div className={`flex-1 overflow-y-auto pb-[100px] ${isDarkMode ? "bg-black text-white" : "" }`}>
+        <div className="fixed bottom-2 left-0 w-full text-center py-2 font-medium">
+          Made by Eddie
+        </div>
+        <div
+          className={`flex-1 overflow-y-auto pb-[100px] ${
+            isDarkMode ? "bg-black text-white" : ""
+          }`}
+        >
           {!isNothing ? (
             messageList.map((message, index) => (
               <div
                 key={index}
                 className={`${
                   message.isUserMessage
-                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium ml-auto pr-[250px]"
-                    : "text-left rounded-md pr-[200px] pl-[50px]"
+                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium ml-[50px] pr-[250px]"
+                    : "text-left rounded-md pr-[250px] pl-[50px]"
                 }`}
               >
                 {message.isUserMessage ? (
                   <div className="flex justify-end items-center">
-                    <p>{message.message}</p>
                     <img
-                      className="rounded-full ml-4"
+                      className="rounded-full mr-4"
                       src={message.avatar}
                       alt="Avatar"
                       width="40"
                       height="40"
-                    />
+                      />
+                    <p>{message.message}</p>
                   </div>
                 ) : (
                   <div className="flex items-start ml-2">
