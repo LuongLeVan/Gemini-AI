@@ -254,7 +254,7 @@ const Main = () => {
         </div>
         <div className="flex items-center fixed w-full bottom-10 ml-4 md:pr-[200px] ">
           <input
-            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[85%] md:w-[70%] ${
+            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[85%] md:w-[70%] mb-[10px] ${
               isDarkMode ? "text-white bg-[#3a4040]" : "bg-[#d4e2f4]"
             } `}
             type="text"
@@ -297,11 +297,10 @@ const Main = () => {
                 {message.isUserMessage ? (
                   <div className="flex justify-end items-center">
                     <img
-                      className="rounded-full mr-4 h-[40px]"
+                      className="rounded-full mr-2 md:mr-4 md:w-[40px] md:h-[40px] w-[30px] h-[30px]"
                       src={message.avatar}
                       alt="Avatar"
-                      width="40"
-                      height="40"
+                      
                     />
                     <div className="text-left">
                       <p className="text-[15px] md:text-[16px]">{message.message}</p>
