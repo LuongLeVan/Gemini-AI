@@ -165,11 +165,11 @@ const Main = () => {
 
   return (
     <div
-      className={`w-full min-h-screen pl-[200px] flex pt-2 ${
+      className={`w-full min-h-screen pl-2 md:pl-[200px] flex pt-2 ${
         isDarkMode ? "bg-[#0e0f0f] text-white" : ""
       }`}
     >
-      <div className={"w-[10%]"}>
+      <div className={"w-[10%] hidden md:block"}>
         <div
             className={`fixed top-0 left-0 z-40 h-screen p-4 transition-all duration-300 ${
               isDrawerOpen ? "w-64 translate-x-0" : "w-[200px] -translate-x-0"
@@ -235,9 +235,9 @@ const Main = () => {
 
         {/*  */}
       </div>
-      <div className="w-[90%] ml-4 ">
+      <div className="w-full pr-4 md:pr-0 md:w-[90%] md:ml-4 ">
         <div className="flex items-center justify-between">
-          <p className="text-[20px]">Gemini</p>
+          <p className="text-[26px]">Gemini</p>
           <div className="flex">
             <button className="text-[24px]" onClick={() => toggleDarkMode()}>
               {isDarkMode ? <SunOutlined /> : <MoonOutlined />}
@@ -252,9 +252,9 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="flex items-center fixed w-full bottom-10 pr-[200px] ">
+        <div className="flex items-center fixed w-full bottom-10 ml-4 md:pr-[200px] ">
           <input
-            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[70%] ${
+            className={`focus:outline-none bottom-4 border-none px-6 py-4 rounded-[50px]  left-[30%] w-[85%] md:w-[70%] ${
               isDarkMode ? "text-white bg-[#3a4040]" : "bg-[#d4e2f4]"
             } `}
             type="text"
@@ -268,7 +268,7 @@ const Main = () => {
             ""
           ) : (
             <img
-              className="absolute right-[40%] w-[24px] h-[24px] hover:opacity-70 hover:cursor-pointer"
+              className="absolute right-[20%] md:right-[40%] w-[24px] h-[24px] hover:opacity-70 hover:cursor-pointer"
               src={button}
               alt="send"
               onClick={handleClick}
@@ -279,7 +279,7 @@ const Main = () => {
           Made by Eddie
         </div>
         <div
-          className={`flex-1 overflow-y-auto pb-[100px] ${
+          className={`flex-1 overflow-y-auto pb-[140px] ${
             isDarkMode ? "bg-[#0e0f0f] text-white" : ""
           }`}
         >
@@ -290,8 +290,8 @@ const Main = () => {
                 id={message.id}
                 className={`${
                   message.isUserMessage
-                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium ml-[50px] pr-[250px]"
-                    : "text-left rounded-md pr-[250px] pl-[50px]"
+                    ? "text-right p-3 mt-7 mb-7 w-fit rounded-md font-medium md:ml-[50px] md:pr-[250px]"
+                    : "text-left rounded-md md:pr-[250px] md:pl-[50px]"
                 }`}
               >
                 {message.isUserMessage ? (
@@ -304,21 +304,20 @@ const Main = () => {
                       height="40"
                     />
                     <div className="text-left">
-                      <p>{message.message}</p>
+                      <p className="text-[15px] md:text-[16px]">{message.message}</p>
                       <p className="block text-[12px]">{message.time}</p>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-start ml-2">
+                  <div className="flex items-start md:ml-2">
                     <img
-                      className="mr-4"
+                      className="md:mr-4 mr-2 md:w-[40px] md:h-[40px] w-[30px] h-[30px]"
                       src={message.avatar}
                       alt="Avatar"
-                      width="40"
-                      height="40"
+                     
                     />
                     <div className="text-left">
-                      <p
+                      <p className="text-[15px] md:text-[16px]"
                         dangerouslySetInnerHTML={{ __html: message.message }}
                       />
 
@@ -329,7 +328,7 @@ const Main = () => {
               </div>
             ))
           ) : (
-            <span className="block font-medium text-[32px] mt-[20%] mx-[20%]">
+            <span className="block font-medium text-center mt-[50%] text-[24px] md:text-[32px] md:mt-[20%] md:mx-[20%]">
               Hello, How can i help you?
             </span>
           )}
