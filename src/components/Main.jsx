@@ -309,7 +309,7 @@ const Main = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-start md:ml-2">
+                  <div className="flex items-start ml-2">
                     <img
                       className="md:mr-4 mr-2 md:w-[40px] md:h-[40px] w-[30px] h-[30px]"
                       src={message.avatar}
