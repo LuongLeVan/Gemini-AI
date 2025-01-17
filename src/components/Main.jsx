@@ -297,26 +297,26 @@ const Main = () => {
                 {message.isUserMessage ? (
                   <div className="flex justify-end items-center">
                     <img
-                      className="rounded-full mr-2 md:mr-4 md:w-[40px] md:h-[40px] w-[30px] h-[30px]"
+                      className="rounded-full mr-2 md:mr-4 w-[40px] h-[40px]"
                       src={message.avatar}
                       alt="Avatar"
                       
                     />
                     <div className="text-left">
-                      <p className="text-[15px] md:text-[16px]">{message.message}</p>
+                      <p className="text-[16px]">{message.message}</p>
                       <p className="block text-[12px]">{message.time}</p>
                     </div>
                   </div>
                 ) : (
                   <div className="flex items-start ml-2">
                     <img
-                      className="md:mr-4 mr-2 md:w-[40px] md:h-[40px] w-[30px] h-[30px]"
+                      className="md:mr-4 mr-2 w-[40px] h-[40px]"
                       src={message.avatar}
                       alt="Avatar"
                      
                     />
                     <div className="text-left">
-                      <p className="text-[15px] md:text-[16px]"
+                      <p className="text-[16px]"
                         dangerouslySetInnerHTML={{ __html: message.message }}
                       />
 
